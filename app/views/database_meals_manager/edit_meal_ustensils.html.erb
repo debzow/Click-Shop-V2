@@ -1,0 +1,16 @@
+<div class="edit-user-params-container">
+  <div class="edit-params-form">
+    <%= form_tag(manager_update_meal_ustensils_path(:meal_id => @meal.id), method: :post) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Equipements nécessaire pour cuisiner ce plat" %><br>
+        <% @meal_ustensils_checkbox.each do |key, value| %>
+          <%= hidden_field_tag key, false %>
+          <%= check_box_tag key, true, checked = value, class:"checkmark" %> <%= key %> </br>
+        <% end %>
+      </div>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Sauvegarder", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+  </div>
+</div>

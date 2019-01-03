@@ -1,0 +1,38 @@
+<div class="shopping-list-container">
+	<h1>Shopping liste n°<%= @list_id %></h1>
+		<div>
+			<%= link_to 'Ajouter Ingredients', shopping_lists_add_ingredient_show_path, class:'default-btn mid-button theme-color' %>
+			<%= link_to 'Envoyer la liste par email', shopping_lists_share_path, class:'default-btn mid-button dark-color'%>
+		</div>
+		<div class="shopping-list-content">
+		<% @list_by_store.each do |store, ingredient_details| %>
+			<div class="shopping-list-table">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="4" class="table-title">Rayons : <%= store %></th>
+					</tr>
+					<tr>
+						<th class="table-subtitle">Ingredients</th>
+						<th class="table-subtitle">Quantités</th>
+						<th class="table-subtitle">Unités</th>
+						<th class="table-subtitle">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% ingredient_details.each do |name, quantity_detail| %>
+					<div>
+						<tr>
+							<td class="list-ingredient-name">- <%= name %></td>
+							<td class="list-ingredient-detail"><%= quantity_detail[1] %></td>
+							<td class="list-ingredient-detail"><%= quantity_detail[0] %></td>
+							<td style="border: 1px black solid; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; text-align: center;"><%= link_to 'retirer', delete_ingredient_path(Ingredient.find_by(name: name).id), method: :delete, class:'default-btn mid-button theme-tag-color'%></td>
+						</tr>
+					</div>	
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<% end %>
+</div>
+

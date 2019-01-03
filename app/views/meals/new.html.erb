@@ -1,0 +1,157 @@
+<!--banner-->
+<div class="banner banner-blog">
+    <div class="container ">
+        <div class="main-heading">
+            <h1>Proposez votre recette</h1>
+        </div>
+    </div>
+</div>
+
+<div class="recipes-home-body inner-page">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 col-lg-9">
+                <div class="recipe-set submit-recipe-set">
+                    <h2>Créez votre recette !</h2>
+                    <h4>Tous les champs sont nécessaire ! Vous pouvez utiliser les ingrédients uniquement présents dans notre liste. Si vous souhaitez ajouter un nouvel ingrédient veuillez nous contacter. </h4>
+
+                    <div class="submit-recipe-form">
+                    <%= form_for(@new_meal) do |f| %>
+                            <%= f.label "Nom de la recette" %><br>
+                            <%= f.text_field :name, id:"meal-title" %>
+                            <br>
+                            <%= f.label "Brève description de la recette" %><br>
+                            <%= f.text_area :description, class:"short-text", id:"short-description"  %>
+                            <br>
+                            <%= f.label "Procedé de la recette" %><br>
+                            <%= f.text_area :receipe, id:"recipe-content" %>
+                
+                            <fieldset class="ingredient-set">
+                                <ul class="list-sortable ingredients-list">
+                                <%= f.label "Ingredients" %><br>
+                                    <li>
+                                    <div class="add-fields">
+                                        <%= select(:ingrdients, :ingredient_1, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_1, min: 0, step: 0.05) %>
+                                        
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                    <span class="add-button add-ing" id="show-hidden-field1">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <li>
+                                    <div class="add-fields hidden-field" id="hidden-field1">
+                                        <%= select(:ingrdients, :ingredient_2, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_2, min: 0, step: 0.05)  %>
+                                    
+
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list" id="del-list1"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                    <span class="add-button add-ing hidden-field" id="show-hidden-field2">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <li>
+                                    <div class="add-fields hidden-field" id="hidden-field2">
+                                        <%= select(:ingrdients, :ingredient_3, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_3, min: 0, step: 0.05)  %>
+                                        
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list" id="del-list2"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                    <span class="add-button add-ing hidden-field" id="show-hidden-field3">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <li>
+                                    <div class="add-fields hidden-field" id="hidden-field3">
+                                        <%= select(:ingrdients, :ingredient_4, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_4, min: 0, step: 0.05)  %>
+                                        
+
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list" id="del-list3"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                    <span class="add-button add-ing hidden-field" id="show-hidden-field4">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <li>
+                                    <div class="add-fields hidden-field" id="hidden-field4">
+                                        <%= select(:ingrdients, :ingredient_5, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_5, min: 0, step: 0.05)  %>
+                                    
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list" id="del-list4"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                    <li>
+                                    <div class="add-fields hidden-field" id="hidden-field5">
+                                        <%= select(:ingrdients, :ingredient_6, @ingredient_quantity_type_list, {include_blank: false}, id:"cuisine-select", class:"advance-selectable") %>
+                                        <%= number_field_tag(:quantity_6, min: 0, step: 0.05)  %>
+                                        
+
+                                        <span class="handler-list"><i class="fa fa-arrows"></i></span>
+                                        <span class="del-list" id="del-list5"><i class="fa fa-trash"></i></span>
+                                    </div>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                <%= f.label "Type de Repas" %><br>
+                                <%= f.collection_select :meal_type_id, MealType.order(:name),:id,:name, {include_blank: false}, id:"recipe-type", class:"advance-selectable"%>
+                                </div>
+                                <div class="col-sm-6">
+                                <%= f.label "Ustensils" %><br>
+                                <% @ustensils_checkbox.each do |key, value| %>
+                                    <%= hidden_field_tag key, false %>
+                                    <%= check_box_tag key, true, checked = value, class:"checkmark" %> <%= key %> </br>
+                                <% end %>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                            <%= f.submit "Créer ma recette", class:"default-btn mid-button theme-color" %>
+                            </div>
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <div class="widget widget-get-social">
+                    <ul>
+                        <li class="facebook">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                                <span class="count">23.5K</span>
+                                <span class="count-type">Likes</span>
+                            </a>
+                        </li>
+                        <li class="twitter">
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                                <span class="count">23.5K</span>
+                                <span class="count-type">Likes</span>
+                            </a>
+                        </li>
+                        <li class="google-plus">
+                            <a href="#">
+                                <i class="fa fa-google-plus"></i>
+                                <span class="count">23.5K</span>
+                                <span class="count-type">Likes</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            <!--get social ends-->
+            </div>
+
+        </div>
+    </div>
+</div>

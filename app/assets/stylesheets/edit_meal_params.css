@@ -1,0 +1,72 @@
+.edit-user-params-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 25px;
+  margin-bottom: 25px; 
+}
+
+.edit-params-form{
+  display: flex;
+  justify-content: center;
+  border: solid 2px #6ebe3b;
+  border-radius: 6px;
+  width: 25%;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  -webkit-box-shadow: 5px 4px 20px 2px #939393; 
+  box-shadow: 5px 4px 20px 2px #939393;
+  background-image: url(bg-ingredients.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.checkmark {
+  height: 20px;
+  width: 20px;
+  padding-left: 10px;
+}
+
+.edit-ustensils {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.edit-params-form label{
+  font-size: 20px;
+  text-align: center;
+  font-style: italic;
+  padding-top: 10px;
+  background-color: #6ebe3b; 
+  color: #000;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+}
+
+.edit-restrictions {
+  text-align: left;
+}
+
+.edit-household {
+  text-align: center;
+}
+
+
+.edit-household select{
+  background-color: #fff;
+  border: solid 2px #43c42b;
+  border-radius: 4px;
+  width: 25%;
+}
+
+.edit-confirm-button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#btn-save-changes{
+  font-size: 20px;
+  width: 75%;
+}

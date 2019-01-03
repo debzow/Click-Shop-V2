@@ -1,0 +1,130 @@
+<div class="center">
+	<div class="card">
+		<header class="card__thumb">
+			<%if @user.image.attached?%>
+				<%= image_tag @user.image%>
+			<%else%> 
+				<%image_tag 'main-recipe4.jpg'%>
+			<%end%>
+		</header>
+		<div class="card__body">
+			<div class="card__title">
+				<%=current_user.username %>
+			</div>
+			<br>
+			<ul>
+				<li class="user-detail">
+					<p>
+						<strong>Nom: </strong><%=current_user.last_name %>
+					</p>
+				</li>
+				<hr>
+				<li class="user-detail">
+					<p>
+						<strong>Prénom: </strong><%=current_user.first_name %>
+					</p>
+				</li>
+				<hr>
+				<li class="user-detail">
+					<p>
+						<strong>Email: </strong><%=current_user.email %>
+					</p>
+				</li>
+				<hr>
+				<li class="button-edit">
+					<%= link_to "Editer mon profil", edit_user_registration_path, class: "default-btn mid-button theme-color", id: "edit-button" %>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="tabs">
+		<input id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1">Paramètres repas</label>
+		<input id="tab2" type="radio" name="tabs" >
+		<label for="tab2">Mes recettes crées</label>
+		<input id="tab3" type="radio" name="tabs">
+		<label for="tab3">Mes préférées</label>
+		
+		<div class="content">
+
+			<div id="content1">
+				<h2>Infos complémentaires</h2>
+				<hr>
+				<ul>
+					<li>
+						<p><strong>Mes restrictions alimentaires:</strong></p>
+						<% @user_food_restrictions.each do |food_restriction| %>
+							<div class="food-res">- <%= food_restriction.name %></div>
+						<% end %>
+					</li>
+					<hr>
+					<li>
+						<p><strong>Equipement de ma cuisine:</strong></p>
+						<% @user_ustensils.each do |ustensil| %>
+							<div class="ust">- <%= ustensil.name %></div>
+						<% end %>
+					</li>
+					<hr>
+					<li>
+						<p><strong>Nombre de personne dans mon foyer:</strong></p>
+						<div class="hhnum"><%= @user_household %></div>
+					</li>
+					<hr>
+					<li><%= link_to "Editer Paramètres repas", users_edit_meal_parameter_path, class: "default-btn mid-button theme-border", id: "edit-info-button" %>
+					</li>
+				</ul>
+			</div>
+
+			<div id="content2">
+				<h2>Liste de mes recettes crées:</h2>
+				<p>
+					<% @user_created_meals.each do |created_meal| %>
+						<div><%= created_meal.name %></div>
+					<% end %>
+				</p>
+			</div>
+
+				<div id="content3">
+					<h2> Mes recettes préférées: </h2>
+					<table  class="table">
+						  <thead>
+						    <tr>
+						      <th colspan="3"></th>
+						    </tr>
+						  </thead>
+
+						  <tbody>
+						    <% @user_favorit_meals.each do |favorit_meals| %>
+						      <tr>
+						      	<td><%= favorit_meals.name %></td>
+						        <td><%= link_to 'Voir la recette ', meal_path(favorit_meals.id) %></td>
+						        <td>
+						        <div class="fav-icon">
+				                    <% if favorit_meals.favorit_users.include?(current_user)%>
+				                      <%= link_to meal_path(favorit_meals.id), method: :delete, data: { confirm: 'Ce plat ne fera plus parti de vos favorits !!' }  do%> 
+				                        <%= image_tag("full_heart.png",alt: "image", class: "closed-box", id:"full")%>
+				                      <% end %>
+				                    <% else %>
+				                      <%= link_to  new_fav_meal_path(favorit_meals.id) do%> 
+				                          <%= image_tag("empty_heart.png",alt: "image", class: "open-box",id:"empty")%>
+				                      <% end %>
+				                    <% end %>
+				                  </div>
+				              </td>
+						      </tr>
+						    <% end %>
+						  </tbody>
+						</table>
+				</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+

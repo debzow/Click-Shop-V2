@@ -1,0 +1,24 @@
+<div class="container-cart-new">
+  <%= form_tag meal_carts_generate_path, method: :get do %>
+  <fieldset>
+      <div class="inner-advance-search-cart-new">
+        <div class="new-cart-label">
+         <%= label_tag "Nombre de repas" %><br><br>
+        </div>
+          <div class="form-field-cart-new">
+            <%= select(:user_choice, :meal_number, @cart_max_size) %><br><br>
+          </div><br><br>
+          <div class="btn-submit">
+          <%= submit_tag "Let's Go !", :name => nil, class:"default-btn mid-button theme-color" %>
+          </div>
+      </div>
+  </fieldset>
+  <% end %>
+</div>
+<br>
+
+
+
+
+
+

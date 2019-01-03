@@ -1,0 +1,91 @@
+h2 {
+	text-align: left;
+	text-decoration: underline;
+}
+.tabs {
+	width: 70%;
+	margin-top: 25px;
+	
+}
+.tabs input {
+  	display: none;
+}
+.tabs label {
+  	font-family: 'Lora', serif;
+	font-size: 25px;
+	color: #000;
+	font-weight: 550px;
+	display: inline-block;
+	padding: 6px 0 6px 0;
+	margin: 0 -2px;
+	width: 33%; /* =100/tabs number */
+	text-align: center;
+	border-radius: 10%;
+	background-color: #6ebe3b;
+}
+.tabs label:hover {
+  	cursor: pointer;
+}
+.tabs input:checked + label {
+	color: #fff;
+  	border-bottom: 2px solid #8b3b1d;
+}
+.tabs #tab1:checked ~ .content #content1,
+.tabs #tab2:checked ~ .content #content2,
+.tabs #tab3:checked ~ .content #content3,
+.tabs #tab4:checked ~ .content #content4 {
+  	display: block;
+}
+.tabs .content > div{
+  	display: none;
+  	padding-top: 20px;
+  	text-align: left;
+}
+
+.content {
+	padding-left: 15px;
+}
+.content p {
+	font-size: 20px;
+	color: #000;
+	font-family: 'Lora', serif;
+	font-size: 20px;
+	font-style: italic;
+
+}
+#content1 {
+	margin-left:55px;
+
+}
+
+.food-res, .ust, .hhnum{
+	font-family: 'Lora', serif;
+	font-size: 18px;
+}
+
+
+#content2 {
+	margin-left:55px;
+	margin-top:55px;
+}
+#content3 {
+	margin-left:55px;
+	margin-top:55px;
+}
+.center{
+	margin: 70px 100px;
+}
+.param-title {
+	text-align: left;
+	text-decoration: underline;
+}
+.param-content {
+	font-family: 'Lora', serif;
+	font-size: 20px;
+}
+#edit-info-button {
+	text-align: center;
+	color: #000;
+	text-decoration: none;
+	width: 40%;
+}

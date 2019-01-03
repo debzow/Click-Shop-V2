@@ -1,0 +1,35 @@
+
+
+<div class="shopping-list-container">
+
+  <div class="row justify-content-center"> 
+    <div class="col-4">
+      <h1>Votre liste de course !!</h1>
+        <div class="shopping-list-content">
+        <% @list_by_store.each do |store, ingredient_details| %>
+          <div class="shopping-list-table">
+            <table class = 'table'>
+              		 <thead>
+              	     <tr>
+              			   <th  class="table-title">Rayons : <%= store %></th>
+              		  </tr>
+              		  </thead>
+                		<tbody>
+                		  <% ingredient_details.each do |name, quantity_detail| %>
+                		  <div>
+                  			<tr>
+                  			  <td class="list-ingredient-name">- <%= name %></td>
+                  			  <td class="list-ingredient-detail"><%= quantity_detail[1] %></td>
+                  			  <td class="list-ingredient-detail"><%= quantity_detail[0] %></td>
+                  			</tr>
+                		  </div>	
+                		  <% end %>
+                		</tbody>
+      	  </table>
+      	</div>
+        <% end %>
+        </div>
+      </div>   
+    </div>
+</div>
+

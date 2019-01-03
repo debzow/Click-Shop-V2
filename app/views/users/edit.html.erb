@@ -1,0 +1,22 @@
+<div class="devise">
+	<div class="connexion">
+		   <div class="panel">
+               <h3>Téléchargez une Image de vous !</h3>
+           </div>
+			<%= form_with action:'update', html: {class: "nifty_form"},local: true do |form| %>
+
+			<div class= 'form-group'>
+			  <%= form.file_field :images,class:"form-control"  %>
+			</div>
+
+		  <%= form.submit "Télécharger",class:"default-btn mid-button theme-color" %>
+		<% end %>
+	</div>
+</div>	
+
+
+
+
+
+
+

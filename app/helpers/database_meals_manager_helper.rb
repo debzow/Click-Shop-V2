@@ -1,0 +1,2 @@
+module DatabaseMealsManagerHelper
+end

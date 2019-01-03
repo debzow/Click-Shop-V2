@@ -1,0 +1,15 @@
+
+<div>
+    <h3><strong>Récupérer une recette sur  WeCook :</strong></h3>
+    <%= form_tag({controller: "database_meals_manager", action: "create_meal"}, method: :post) do %>
+        <fieldset>
+            <div class="inner-advance-search">
+                <div class="form-field">
+                <%= text_field_tag :search, params[:search], placeholder: "Rechercher..."%>
+                </div>
+                <%= submit_tag "Recherche", :name => nil, class:"default-btn mid-button theme-color" %>
+            </div>
+        </fieldset>
+    <% end %>
+    <hr>
+</div>

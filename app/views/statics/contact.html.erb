@@ -1,0 +1,113 @@
+<!--banner-->
+<div class="banner banner-blog">
+    <div class="container ">
+        <div class="main-heading">
+            <h1>Contactez-nous</h1>
+        </div>
+
+    </div>
+</div>
+<!--banner ends-->
+
+<!--main content area-->
+<section class="recipes-home-body inner-page">
+    <div class="container">
+        <div class="recipe-set">
+            <h2>Nos Coordonées</h2>
+            <div class="contact-container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <section class="contact-option-single">
+                            <h3>Samir</h3>
+                            <p>
+                                Recipe north street, opp secure garden. Hotel
+                                View, City State Office, Melbournebr <br/>
+                                Australia. 123456
+                            </p>
+                            <ul class="contact-options">
+                                <li class="phone"><span>Phone: </span>+123 4567 890</li>
+                                <li class="fax"><span>Fax: </span>+123 4567 890</li>
+                                <li class="email"><span>Email: </span><a href="#">info@foodandtaste.com</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-3">
+                        <section class="contact-option-single">
+                            <h3>Vano</h3>
+                            <p>
+                                Recipe north street, opp secure garden. Hotel
+                                View, City State Office, Melbournebr <br/>
+                                Australia. 123456
+                            </p>
+                            <ul class="contact-options">
+                                <li class="phone"><span>Phone: </span>+123 4567 890</li>
+                                <li class="fax"><span>Fax: </span>+123 4567 890</li>
+                                <li class="email"><span>Email: </span><a href="#">info@foodandtaste.com</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-3">
+                        <section class="contact-option-single">
+                            <h3>David</h3>
+                            <p>
+                                Recipe north street, opp secure garden. Hotel
+                                View, City State Office, Melbourne <br/>
+                                Australia. 123456
+                            </p>
+                            <ul class="contact-options">
+                                <li class="phone"><span>Phone: </span>+123 4567 890</li>
+                                <li class="fax"><span>Fax: </span>+123 4567 890</li>
+                                <li class="email"><span>Email: </span><a href="#">info@foodandtaste.com</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-3">
+                        <section class="contact-option-single">
+                            <h3>Javi</h3>
+                            <p>
+                                Recipe north street, opp secure garden. Hotel
+                                View, City State Office, Melbourne <br/>
+                                Australia. 123456
+                            </p>
+                            <ul class="contact-options">
+                                <li class="phone"><span>Phone: </span>+123 4567 890</li>
+                                <li class="fax"><span>Fax: </span>+123 4567 890</li>
+                                <li class="email"><span>Email: </span><a href="#">info@foodandtaste.com</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="separator-post"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact-option-single">
+                            <h3>Contactez-nous</h3>
+                            <fieldset>
+                                <form action="contact_form_handler.php" id="contact-form" method="post" novalidate="novalidate">
+                                    <input class="required" type="text" name="name" placeholder="Name" title="*Enter Your Name"/>
+                                    <input class="required" type="email" name="email" placeholder="Email Address" title="*enter valid email address"/>
+                                    <input type="number" class="number" name="number" placeholder="Phone Number"/>
+                                    <textarea class="required" name="message" id="message" cols="30" rows="10" placeholder="Message" title="*type your message"></textarea>
+                                    <%= submit_tag "Envoyer Message", class:"default-btn mid-button theme-color" %>
+                                    <%image_tag('loader2.gif', id: 'contact-loader', alt: 'Loading...') %>
+
+
+                                </form>
+                            </fieldset>
+                            <div class="error-container"></div>
+                            <div id="message-sent"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <%= image_tag('contact1CS.jpg') %>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--main content area-->

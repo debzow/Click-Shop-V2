@@ -1,0 +1,14 @@
+<div class="edit-user-params-container">
+  <div class="edit-params-form">
+    <%= form_tag({controller: "database_meals_manager", action: "edit_meal_ustensils"}, method: :get) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Sélectionnez le plat que vous allez éditer" %><br>
+        <%= select(:meal, :meal_id, @meals_to_edit, class:"hhnumber") %><br>
+      </div>
+      <hr>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Editer ustensiles", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+  </div>
+</div>

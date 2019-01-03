@@ -1,0 +1,60 @@
+/* css devise*/
+.connexion{
+	border: 2px solid #1C6EA4;
+	-webkit-box-shadow: 5px 2px 9px 10px rgba(0,0,0,0.43); 
+	box-shadow: 5px 2px 9px 10px rgba(0,0,0,0.43);
+	padding: 30px 150px;
+	
+}
+.devise{
+	margin: 70px 200px ;
+}
+
+/*toggle favorit heart */
+#full1, #full2, #full3, #full4, #full5, #full6, #full7, #full8, #full9{
+  display: none;
+}
+
+/*titre page cart_show*/
+.cart-title{
+	margin: auto;
+}
+
+/*phrase accroche page accueil*/
+
+
+.slogan h1 {
+  position: relative;
+  margin: 0 60px;
+  vertical-align: middle;
+  font-family: 'Lora', serif;
+  font-size: 55px;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: oblique;
+  color:#fff;
+  text-shadow: 3px 2px 10px #000;
+}
+
+/*btn back to top*/
+
+#back-to-top:hover {
+  background-color: green !important ; /* Add a dark-grey background on hover */
+}
+#back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    display:none;
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #6ebe3b !important; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }

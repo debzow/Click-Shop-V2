@@ -1,0 +1,13 @@
+<div class="edit-user-params-container">
+  <div class="edit-params-form">
+    <%= form_tag(manager_update_ingredient_store_section_path(:ingredient_id => @ingredient.id), method: :post) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Rayon de cet ingrédient" %><br>
+        <%= select(:store_section, :store_section_id, @store_sections, class:"hhnumber") %><br>
+      </div>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Sauvegarder", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+  </div>
+</div>

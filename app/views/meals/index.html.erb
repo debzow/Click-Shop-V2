@@ -1,0 +1,105 @@
+<!--banner-->
+<div class="banner banner-blog">
+    <div class="container ">
+    </div>
+</div>
+<div class="advance-search">
+<!--advance search form-->
+  <div class="container">
+    <div class="wrapper-search">
+      <div class="container-tags">
+        <span class="tag">
+          <span class="tag-inner">Trouver une Recette <i class="fa fa-angle-down"></i></span>
+        </span>
+      </div>
+      <div class="outer-advance-search">
+        <h3><strong>Recherche par nom :</strong></h3>
+        <%= form_tag({controller: "meals", action: "search_by_name"}, method: :get) do %>
+        <fieldset>
+          <div class="inner-advance-search">
+            <div class="form-field">
+              <%= text_field_tag :search, params[:search], placeholder: "Rechercher..."%>
+            </div>
+              <%= submit_tag "Recherche", :name => nil, class:"default-btn mid-button theme-color" %>
+          </div>
+        </fieldset>
+        <% end %>
+        <hr>
+      </div>
+      <div class="outer-advance-search">
+        <h3><strong>Recherche Avancée :</strong></h3>
+        <%= form_tag({controller: "meals", action: "search_by_categories"}, method: :get) do %>
+        <fieldset>
+          <div class="inner-advance-search">
+            <div class="form-field">
+              <%= label_tag "Par Ingredient" %><br>
+              <%= select(:search_categories, :ingredient_type_id, @ingredient_types, {include_blank: true}, class:"advance-selectable") %>
+            </div>
+            <div class="form-field">
+              <%= label_tag "Par repas" %><br>
+              <%= select(:search_categories, :meal_type_id, @meal_types, {include_blank: true}, class:"advance-selectable") %>
+            </div>
+            <%= submit_tag "Recherche", :name => nil, class:"default-btn mid-button theme-color" %>
+          </div>
+        </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<!--advance search form ends-->
+</div>
+<!--banner ends-->
+<div class="recipes-home-body inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        
+        <div class="recipe-set">
+          <h2>Nos recettes Recettes</h2>
+            <div class="recipe-listing listing-grid">
+              <% @meals.each do |element| %>
+              <div class="listing">
+
+                <div class="image">
+                  <%= link_to meal_path(element.id) do %>
+
+                    <% if element.picture_url %>
+                      <%= image_tag element.picture_url %>
+                    <% else %>
+                      <%= image_tag('listing-1.jpg', alt: "image") %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="detail">
+                  <h4>
+                    <%= link_to element.name, meal_path(element.id)%>
+                  </h4>
+                  <div class="meta-listing">
+                    <% if user_signed_in? %>
+                    <%= link_to 'Ajouter', add_meal_path(element.id), method: :put, class:'default-btn mid-button theme-color'%>
+                    <% end %>
+                </div>
+                <div class="fav-icon">
+                  <% if user_signed_in? %>
+                    <% if element.favorit_users.include?(current_user)%>
+                      <%= link_to meal_path(element.id), method: :delete do%> 
+                        <%= image_tag("full_heart.png",alt: "image", class: "closed-box", id:"full")%>
+                      <% end %>
+                    <% else %>
+                      <%= link_to  meal_favmeal_path(element.id) do%> 
+                        <%= image_tag("empty_heart.png",alt: "image", class: "open-box",id:"empty")%>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,12 @@
+<div class="container-user-choice">
+  <div class="exist-cart">
+	<h2> Accédez à votre liste de repas</h2>
+	<%= link_to 'Accéder', meal_carts_show_path, class:"default-btn mid-button theme-color" %>
+  </div>
+  <div class="restart-cart">
+
+	<h2>Réinitialisez la liste de vos repas</h2>
+	<%= link_to 'Réinitialiser', meal_carts_reinitiate_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"default-btn mid-button theme-tag-color" %>
+
+  </div>
+</div>

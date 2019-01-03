@@ -1,0 +1,30 @@
+<div class="edit-user-params-container">
+  <div class="edit-params-form">
+    <%= form_tag({controller: "users", action: "update_meal_parameter"}, method: :get) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Equipements de ma cuisine" %><br>
+        <% @user_ustensils_checkbox.each do |key, value| %>
+          <%= hidden_field_tag key, false %>
+          <%= check_box_tag key, true, checked = value, class:"checkmark" %> <%= key %> </br>
+        <% end %>
+      </div>
+      <hr>
+      <div class="edit-restrictions">
+        <%= label_tag "Mes restrictions alimentaires" %><br>
+        <% @food_restrictions_checkbox.each do |key, value| %>
+          <%= hidden_field_tag key, false %>
+          <%= check_box_tag key, true, checked = value, class:"checkmark" %> <%= key %> </br>
+        <% end %>
+      </div>
+      <hr>
+      <div class="edit-household ">
+        <%= label_tag "Personne dans votre foyer" %><br>
+        <%= select(:dropdown, :household_number, @household_max_number, :selected => @household, class:"hhnumber") %><br>
+      </div>
+      <hr>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Sauvegarder", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+  </div>
+</div>

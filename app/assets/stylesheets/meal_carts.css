@@ -1,0 +1,113 @@
+.container-cart-new {
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-image: url(bgnewcart.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+}
+
+.form-field-cart-new {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.form-field-cart-new select{
+  width: 150px;
+  background-color: #e8e8e8;
+  color: #43c42b;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: solid 2px #43c42b;
+}
+
+.form-field-cart-new select:focus, input:focus {
+  outline: none;
+}
+
+.form-field-cart-new select option{
+  width: 150px;
+  color: #43c42b;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}
+
+.inner-advance-search-cart-new label{
+  padding-top: 25px;
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 50px;
+  text-align: center;
+}
+
+.btn-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 25%;
+}
+
+.btn-submit input {
+  width: 75%;
+  height: 50px;
+}
+
+.btn-submit input:hover{
+-webkit-box-shadow: 5px 5px 15px 5px #000000; 
+box-shadow: 5px 5px 15px 5px #000000;
+}
+.container-user-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(footer-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.exist-cart h2 {
+  text-decoration: none;
+  text-align: center;
+}
+.exist-cart{
+  width: 50%;
+  border: solid 10px #3cba23;
+  border-radius: 4px;
+  -webkit-box-shadow: 4px 7px 21px 6px #2F2F2F; 
+  box-shadow: 4px 7px 21px 6px #2F2F2F;
+  background-color: #fff;
+}
+
+.restart-cart h2 {
+  text-decoration: none;
+  text-align: center;
+}
+
+
+.restart-cart{
+  width: 50%;
+  margin-top: 55px;
+  border: solid 10px #d13e27;
+  border-radius: 4px;
+  -webkit-box-shadow: 4px 7px 21px 6px #2F2F2F; 
+  box-shadow: 4px 7px 21px 6px #2F2F2F;
+  background-color: #fff;
+}
+
+.new-cart-label{
+   color:#fff;
+  text-shadow: 3px 2px 10px #000;
+}

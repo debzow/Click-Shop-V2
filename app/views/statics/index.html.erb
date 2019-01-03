@@ -1,0 +1,193 @@
+<!--slider main-->
+<section class="wrapper-home-slider variation-two">
+    <div class="fluid-slider-var2">
+        <div>
+            <%= image_tag('full-slide-1.jpg', alt: "") %>
+            <div class="container custom-container-slide">
+                <div class="slogan"id="s1">
+                    <h1>Faire vos courses est une vrai galère ?</h1>
+                    <h1>Arrêter de vous prendre la tête!!!</h1>
+                </div>
+            </div>
+        </div>
+        <div>
+            <%= image_tag('full-slide-2.jpg', alt: "") %>
+            <div class="container custom-container-slide">
+                <div class="slogan" id="s2">
+                    <h1>En manque d'inspi?</h1>
+                    <h1>Besoin d'une idée de repas?</h1>
+                    <h1>Vous êtes au bon endroit !!!</h1>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <%= image_tag('full-slide-3.jpg', alt: "") %>
+            <div class="container custom-container-slide">
+                <div class="slogan" id="s3">
+                    <h1>Choissizes vos plats </h1>
+                    <h1>et obtenez la liste des course en quelques pas !!!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--slider main ends-->
+<div class="advance-search search-main open">
+</div>
+<div class="recipes-home-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <div class="body-contents">
+                    <div class="recipe-set">
+                        <h2>Nos recettes les plus populaires</h2>
+                        <div class="boxed-recipes text-center">
+                            <!--single recipe-->
+
+                            <% @meals.each do |element| %>
+                            <div class="recipe-single animated wow flipInY">
+                                <div class="recipe-image">
+                                    <%= link_to meal_path(element.id) do %>
+                                        <% if element.picture_url %>
+                                            <%= image_tag element.picture_url %>
+                                        <% else %>
+            							 <%= image_tag('main-recipe1.jpg', alt: "image") %>
+                                        <% end %>
+                                    <% end %>
+
+                                </div>
+                                <div class="outer-detail">
+                                    <div class="detail">
+                                        <h3>
+                                            <%= link_to element.name, meal_path(element.id)%>
+                                        </h3>
+                                        <div class="short-separator">
+                                        </div>          
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                            <!--single recipe ends-->
+                    <div class="recipe-set">
+                        <h2> Nos Dernières Recettes</h2>
+
+                        <div class="boxed-recipes text-center">
+                            <!--single recipe-->
+                            <% @meals.each do |element| %>
+                            <div class="recipe-single animated wow flipInY">
+                                <div class="recipe-image">
+                                    <%= link_to meal_path(element.id) do %>
+                                        <% if element.picture_url %>
+                                            <%= image_tag element.picture_url %>
+                                        <% else %>
+                                            <%= image_tag('main-recipe5.jpg', alt: "image") %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                                <div class="outer-detail">
+                                    <div class="detail">
+                                        <h3>
+                                            <%= link_to element.name, meal_path(element.id)%>
+                                        </h3>
+                                        <div class="short-separator">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                            <!--single recipe ends-->
+                        </div>
+                    </div>
+                    <!--recipe of the day-->
+                    <div class="recipe-of-day animated wow fadeIn">
+                         <%= link_to meal_path(@meals.first.id) do %>
+                            <% if @meals.first.picture_url %>
+                                <%= image_tag @meals.first.picture_url %>
+                            <% else %>
+            			         <%= image_tag('recipe-of-the-day.jpg', alt: "Recipe of the day") %>
+                            <% end %>
+                        <% end %>
+                        <div class="recipe-contents-outer">
+                            <div class="recipe-contents text-center">
+                                <div class="recipe-content-inner">
+                                    <span class="tag">La recette du Jour</span>
+                                    <h2>
+                                        <%= link_to @meals.first.name, meal_path(@meals.first.id)%>
+                                    </h2>
+                                    <div class="short-separator"></div>
+                                    <p>Goutez notre recette du jour...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--recipe of the day ends-->
+                    <div class="recipe-set">
+                        <h2>Recettes aux hasard</h2>
+                        <div class="boxed-recipes text-center">
+                            <!--single recipe-->
+                            <% @meals.each do |element| %>
+                            <div class="recipe-single animated wow flipInY">
+                                <div class="recipe-image">
+                                <%= link_to meal_path(element.id) do %>
+                                    <% if element.picture_url %>
+                                        <%= image_tag element.picture_url %>
+                                    <% else %>
+            							<%= image_tag('main-recipe7.jpg', alt: "image") %>
+                                    <% end %>
+                                <% end %>
+                                </div>
+                                <div class="outer-detail">
+                                    <div class="detail">
+                                        <h3>
+                                            <%= link_to element.name, meal_path(element.id)%>
+                                        </h3>
+                                        <div class="short-separator">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                            <!--single recipe ends-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <aside>
+                <div class="col-md-6 col-lg-5">
+                <!--get social-->
+                    <div class="widget widget-get-social">
+                        <ul>
+                            <li class="facebook">
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                    <span class="count">23.5K</span>
+                                    <span class="count-type">Likes</span>
+                                </a>
+                            </li>
+                            <li class="twitter">
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                    <span class="count">23.5K</span>
+                                    <span class="count-type">Likes</span>
+                                </a>
+                            </li>
+                            <li class="google-plus">
+                                <a href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                    <span class="count">23.5K</span>
+                                    <span class="count-type">Likes</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                <!--get social ends-->
+                </div>
+            </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,27 @@
+<div class="edit-user-params-container">
+
+
+    <%= form_tag({controller: "database_meals_manager", action: "edit_ingredient_store_section"}, method: :get) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Sélectionnez l'ingrédient" %><br>
+        <%= select(:ingredient, :ingredient_id, @ingredients_edit_store, class:"hhnumber") %><br>
+      </div>
+      <hr>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Editer rayon", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+    <hr>
+    <%= form_tag({controller: "database_meals_manager", action: "edit_ingredient_type"}, method: :get) do %>
+      <div class="edit-ustensils">
+        <%= label_tag "Sélectionnez l'ingrédient" %><br>
+        <%= select(:ingredient, :ingredient_id, @ingredients_edit_type, class:"hhnumber") %><br>
+      </div>
+      <hr>
+      <div class="edit-confirm-button">
+        <%= submit_tag "Editer type", :name => nil, class:"default-btn mid-button theme-color", id:"btn-save-changes" %>
+      </div>
+    <% end %>
+
+
+</div>

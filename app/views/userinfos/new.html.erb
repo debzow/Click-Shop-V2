@@ -1,0 +1,8 @@
+
+<%= form_for @userinfo, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :household, placeholder: "nombre de personne dans le foyer?" %>
+  <%= f.text_field :ustensil, placeholder: "Materiel de cuisine" %>
+  <%= f.label 'restriction alimentaire' %>
+  <%= f.text_area :foodpb, placeholder: "Alors voilà, j'ai commencé à ceuillir des fleurs quand j'avais 6 ans...", size: "30x12" %>
+  <%= f.submit "Envoyer le formulaire" %>
+  <% end %>

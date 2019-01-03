@@ -1,0 +1,48 @@
+<!--banner-->
+<div class="banner banner-blog">
+    <div class="container ">
+        <div class="main-heading">
+            <h1>Voici l'historique de vos commandes</h1>
+        </div>
+    </div>
+</div>
+<!--banner ends-->
+<div class="recipes-home-body inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <div class="recipe-set">
+          <div class="recipe-listing listing-grid">
+            <% i = 1 %>
+		        <% @user_meal_histories.each do |meal| %>
+            <div class="listing animated wow flipInY">
+            	<h4>Date de commande:<br> <%= current_user.meal_cart.updated_at.to_date.strftime("%d/%m/%Y") %></h4>
+              <div class="image">
+                <%= link_to meal_path(meal.id) do %>
+                  <% if meal.picture_url %>
+                      <%= image_tag meal.picture_url %>
+                  <% else %>
+                    <%= image_tag('listing-1.jpg', alt: "image") %>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="detail">
+                <h4>
+                  <%= link_to meal.name, meal_path(meal.id)%>
+                </h4>
+                  <div class="meta-listing">
+
+                    <br>      
+                    <%= link_to 'retirer', delete_meal_path(meal.id), method: :delete, class:'default-btn mid-button theme-tag-color'%>
+                  </div>
+              </div>
+            </div>
+            <br>
+            <% i += 1 %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
