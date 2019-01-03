@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MealRestrictionTest < ActiveSupport::TestCase
+class IngredientTypeRestrictionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

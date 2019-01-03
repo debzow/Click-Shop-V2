@@ -12,7 +12,7 @@ QuantityType.destroy_all
 # # Destroy meal_favorits and meal_histories and MealRestriction
 UserMealFavorit.destroy_all
 UserMealHistory.destroy_all
-MealRestriction.destroy_all
+IngredientTypeRestriction.destroy_all
 # # Destroy Meals
 Meal.destroy_all
 MealType.destroy_all
@@ -27,7 +27,7 @@ User.destroy_all
 
 
 # Generating ustensils
-ustensils_array = ['Plaques Electriques', 'Plaque Chauffante ', 'Mixeur', 'Friteuse', 'Cocotte-Minute']
+ustensils_array = ['Plaques de cuisson', 'Four ', 'Mixeur', 'Friteuse', 'Cocotte-Minute']
 ustensils_array.each do |element|
 	Ustensil.create(name: element)
 end

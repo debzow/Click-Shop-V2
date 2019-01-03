@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_113344) do
+ActiveRecord::Schema.define(version: 2019_01_03_140740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2018_12_14_113344) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "ingredient_type_restrictions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ingredient_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_type_id"], name: "index_ingredient_type_restrictions_on_ingredient_type_id"
+    t.index ["user_id"], name: "index_ingredient_type_restrictions_on_user_id"
   end
 
   create_table "ingredient_types", force: :cascade do |t|
@@ -66,15 +75,6 @@ ActiveRecord::Schema.define(version: 2018_12_14_113344) do
     t.bigint "meal_id"
     t.index ["meal_cart_id"], name: "index_meal_carts_meals_on_meal_cart_id"
     t.index ["meal_id"], name: "index_meal_carts_meals_on_meal_id"
-  end
-
-  create_table "meal_restrictions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "ingredient_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ingredient_type_id"], name: "index_meal_restrictions_on_ingredient_type_id"
-    t.index ["user_id"], name: "index_meal_restrictions_on_user_id"
   end
 
   create_table "meal_types", force: :cascade do |t|
@@ -199,8 +199,8 @@ ActiveRecord::Schema.define(version: 2018_12_14_113344) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "ingredient_type_restrictions", "ingredient_types"
+  add_foreign_key "ingredient_type_restrictions", "users"
   add_foreign_key "meal_carts", "users"
-  add_foreign_key "meal_restrictions", "ingredient_types"
-  add_foreign_key "meal_restrictions", "users"
   add_foreign_key "shopping_lists", "users"
 end

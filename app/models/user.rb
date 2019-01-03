@@ -22,9 +22,9 @@ class User < ApplicationRecord
   #all the meals already bouht by the user
   has_many :history_meals, through: :user_meal_histories, :source => :meal
   # (not useful)
-  has_many :meal_restrictions
+  has_many :ingredient_type_restriction
   #user's food_restrictions
-  has_many :food_restrictions, through: :meal_restrictions, :source => :ingredient_type
+  has_many :food_restrictions, through: :ingredient_type_restriction, :source => :ingredient_type
 
   #Validations
 	attr_accessor :login
